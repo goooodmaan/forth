@@ -1,0 +1,82 @@
+<video class="video-source"
+     width="100%"
+     controls  /*这个属性规定浏览器为该视频提供播放控件*/  
+     style="object-fit:fill"  /*加这个style会让 Android / web 的视频在微信里的视频全屏，如果是在手机上预览，会让视频的封面同视频一样大小*/
+     webkit-playsinline="true"  /*这个属性是ios 10中设置可以让视频在小窗内播放，也就是不是全屏播放*/  
+     x-webkit-airplay="true"  /*这个属性还不知道作用*/ 
+     playsinline="true"  /*IOS微信浏览器支持小窗内播放*/ 
+     x5-video-player-type="h5" /*启用H5播放器,是wechat安卓版特性*/
+     x5-video-orientation="h5" /*播放器支付的方向，landscape横屏，portraint竖屏，默认值为竖屏*/
+     x5-video-player-fullscreen="true" /*全屏设置，设置为 true 是防止横屏*/
+     preload="auto" /*这个属性规定页面加载完成后载入视频*/ 
+</video>
+
+var myswiper = new Swiper('.swiper-container',{
+	autoplay : 1000,  //自动播放
+	loop : true,   //循环
+	autoplayDisableOnInteraction : false  //滑动后会继续自动轮播
+	pagination : '.swiper-pagination',  //设置分页器
+	paginationClickable : true,   //点击分页器可以控制swiper切换
+        slidesPerView: 3              //slides显示的个数 也可以理解成slides的宽
+})
+
+
+^  表示匹配字符串的开始位置  (例外  用在中括号中[ ] 时,可以理解为取反,表示不匹配括号中字符串)
+$  表示匹配字符串的结束位置
+*  表示匹配 零次到多次
++  表示匹配 一次到多次 (至少有一次)
+?  表示匹配零次或一次
+.  表示匹配单个字符 
+|  表示为或者,两项中取一项
+(  ) 小括号表示匹配括号中全部字符
+[  ] 中括号表示匹配括号中一个字符 范围描述 如[0-9 a-z A-Z]
+{  } 大括号用于限定匹配次数  如 {n}表示匹配n个字符  {n,}表示至少匹配n个字符  {n,m}表示至少n,最多m
+\  转义字符 如上基本符号匹配都需要转义字符   如 \*  表示匹配*号
+\w 表示英文字母和数字  \W  非字母和数字
+\d  表示数字   \D  非数字
+
+
+JavaScript获取url中的参数
+function getUrlParam(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+      var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+      if (r != null) return unescape(r[2]); return null; //返回参数值
+}
+
+css文字渐变效果
+background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(0, 128, 0, 1)), to(rgba(51, 51, 51, 1)));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+
+滚动条样式
+::-webkit-scrollbar{width:5px;height:0px;}
+::-webkit-scrollbar-track{background-color:#fff;}
+::-webkit-scrollbar-thumb{background-color:#201615;}
+
+百度地图BMap API实例   http://www.cnblogs.com/liuswi/p/3994757.html
+
+
+<script type="text/javascript">
+//判断访问终端
+var browser={
+    versions:function(){
+        var u = navigator.userAgent, app = navigator.appVersion;
+        return {
+            trident: u.indexOf('Trident') > -1, //IE内核
+            presto: u.indexOf('Presto') > -1, //opera内核
+            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,//火狐内核
+            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+            android: u.indexOf('Android') > -1 || u.indexOf('Adr') > -1, //android终端
+            iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
+            iPad: u.indexOf('iPad') > -1, //是否iPad
+            webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+            weixin: u.indexOf('MicroMessenger') > -1, //是否微信 （2015-01-22新增）
+            qq: u.match(/\sQQ/i) == " qq" //是否QQ
+        };
+    }(),
+    language:(navigator.browserLanguage || navigator.language).toLowerCase()
+}
+</script>

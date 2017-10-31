@@ -1,0 +1,16 @@
+修改 分发 分发到第三个 审核 我的工作台中审核 发布资源库中发布
+
+
+content.name
+content.fields.VALUE
+content.fields.NAME
+content.fields.LONG_NAME
+content.fields.REDREICT_ID
+content.fields.COMMENTS
+content.fields.REDREICT_URL
+content.fields.WAP_URL
+content.fields.CLIENT_URL
+content.fields.SRC_CONT_ID
+content.fields.IMAGES[0].src
+
+跳转客户端 http://a.app.qq.com/o/simple.jsp?pkgname=com.cmvideo.migumovie
